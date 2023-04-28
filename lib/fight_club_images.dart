@@ -1,6 +1,6 @@
 class FightClubImages {
 
   FightClubImages._();
-  static const youAvatar = "assets/images/youAvatar.png";
-  static const enemyAvatar = "assets/images/enemyAvatar.png";
+  static const youAvatar = "assets/images/you-avatar.png";
+  static const enemyAvatar = "assets/images/enemy-avatar.png";
 }
