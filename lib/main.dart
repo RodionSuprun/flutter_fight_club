@@ -61,18 +61,21 @@ class MyHomePageState extends State<MyHomePage> {
                   padding: EdgeInsets.symmetric(horizontal: 16, vertical: 30),
                   child: ColoredBox(
                       color: FightClubColors.enemyBackground,
-                      child: Center(
-                          child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 16),
-                        child: Text(
-                          resultText,
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                              fontWeight: FontWeight.w400,
-                              color: FightClubColors.darkGreyText,
-                              fontSize: 10),
-                        ),
-                      )))),
+                      child: SizedBox(
+                        width: double.infinity,
+                        child: Center(
+                            child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 16),
+                          child: Text(
+                            resultText,
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                fontWeight: FontWeight.w400,
+                                color: FightClubColors.darkGreyText,
+                                fontSize: 10),
+                          ),
+                        )),
+                      ))),
             ),
             ControlsWidget(
                 defendingBodyPart: defendingBodyPart,
@@ -220,6 +223,7 @@ class FightersInfo extends StatelessWidget {
       child: Stack(
         children: [
           Row(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Expanded(
                   child: ColoredBox(
