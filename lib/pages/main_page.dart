@@ -47,19 +47,18 @@ class _MainPageContent extends StatelessWidget {
                   if (!snapshot.hasData || snapshot.data == null) {
                     return const SizedBox();
                   } else {
-                    FightResult? result;
-                    if (snapshot.data == FightResult.won.result) {
-                      result = FightResult.won;
-                    } else if (snapshot.data == FightResult.lost.result) {
-                      result = FightResult.lost;
-                    } else {
-                      result = FightResult.draw;
-                    }
+                    FightResult? result = FightResult.getByName(snapshot.data ?? "");
                     return Column(
                       children: [
                         const Padding(
                           padding: EdgeInsets.only(bottom: 12),
-                          child: Text("Last fight result", style: TextStyle(color: FightClubColors.darkGreyText, fontWeight: FontWeight.w400, fontSize: 14),),
+                          child: Text(
+                            "Last fight result",
+                            style: TextStyle(
+                                color: FightClubColors.darkGreyText,
+                                fontWeight: FontWeight.w400,
+                                fontSize: 14),
+                          ),
                         ),
                         FightResultWidget(fightResult: result),
                       ],
@@ -68,11 +67,13 @@ class _MainPageContent extends StatelessWidget {
                 },
               ),
               const Expanded(child: SizedBox()),
-              SecondaryActionButton(text: "Statistics", onTap: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => const StatisticsPage())
-                );
-              }),
+              SecondaryActionButton(
+                text: "Statistics",
+                onTap: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const StatisticsPage()));
+                },
+              ),
               const SizedBox(height: 12),
               ActionButton(
                   text: "Start".toUpperCase(),
